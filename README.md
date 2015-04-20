@@ -26,9 +26,9 @@ Please refer to the [codebook][codebook_url] that described the variables, the d
 
 
 [course_url]:https://class.coursera.org/getdata-013
-[project_url]:https://class.coursera.org/getdata-013
+[project_url]:https://class.coursera.org/getdata-013/human_grading/index
 [github_url]:https://github.com/scng/getdata_PeerAssignments
-[script_url]:https://github.com/scng/getdata_PeerAssignments/blob/master/README.md
+[script_url]:https://github.com/scng/getdata_PeerAssignments/blob/master/run_analysis.R
 [data_url]:https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip
-[result_url]:https://github.com/scng/getdata_PeerAssignments/blob/master/README.md
-[codebook_url]:https://github.com/scng/getdata_PeerAssignments/blob/master/README.md
+[result_url]:https://github.com/scng/getdata_PeerAssignments/blob/master/summarise_tidy_dataset.txt
+[codebook_url]:https://github.com/scng/getdata_PeerAssignments/blob/master/cookbook.md

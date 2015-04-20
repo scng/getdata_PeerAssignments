@@ -20,7 +20,6 @@ feature_names <- gsub("\\,", ".", feature_names)
 #The feature names are also converted to lower case for easier reference when 
 #only the mean/std variables are extracted in later step
 valid_feature_col_names <- tolower(make.names(names=feature_names, unique=TRUE, allow_=TRUE))
-# valid_feature_col_names <- tolower(feature_names)
 
 #test_data stores the measurements recorded for the subjects' activities
 test_data <- read.table("./data/test/x_test.txt", sep = "" ,header=FALSE,
@@ -31,7 +30,7 @@ names(test_data) <- valid_feature_col_names
 
 #extract only the mean and standard deviation for each measurement 
 #i.e. feature name in original dataset contains mean() or std()
-test_data_mean_std <- select(test_data, contains("mean__"), contains("std__"))
+test_data_mean_std <- test_data[, grepl("mean__|std__",names(test_data))]
 
 #perform a final massaging on collumn names by removing the "__" string
 names(test_data_mean_std) <- gsub("__", "", names(test_data_mean_std))
@@ -40,7 +39,7 @@ names(test_data_mean_std) <- gsub("__", "", names(test_data_mean_std))
 train_data <- read.table("./data/train/X_train.txt", sep = "" ,header=FALSE,
                         na.strings ="", stringsAsFactors= FALSE)
 names(train_data) <- valid_feature_col_names
-train_data_mean_std <- select(train_data, contains("mean__"), contains("std__"))
+train_data_mean_std <- train_data[, grepl("mean__|std__",names(train_data))]
 names(train_data_mean_std) <- gsub("__", "", names(train_data_mean_std))
 
 #Merges the training and the test datasets' means and standard deviations to create one data set

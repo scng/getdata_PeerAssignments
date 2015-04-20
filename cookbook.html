@@ -70,15 +70,15 @@ img {
 
 <div id="collection-of-the-raw-data" class="section level2">
 <h2>Collection of the raw data</h2>
-<p>The <a href="https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip">data</a> used in this project was provided by the <a href="https://class.coursera.org/getdata-013">course project page</a>.</p>
+<p>The <a href="https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip">data</a> used in this project was provided by the <a href="https://class.coursera.org/getdata-013/human_grading/index">course project page</a>.</p>
 </div>
 <div id="notes-on-the-original-raw-data" class="section level2">
 <h2>Notes on the original (raw) data</h2>
-<p>For the details about the raw data. Please check the <a href="https://github.com/scng/getdata_PeerAssignments/blob/master/README.md">readme</a> and <a href="https://github.com/scng/getdata_PeerAssignments/blob/master/README.md">feature info</a> files, which is extracted from the raw data and included in the github repository for reference.</p>
+<p>For the details about the raw data. Please check the <a href="https://github.com/scng/getdata_PeerAssignments/blob/master/original_data/README.txt">readme</a> and <a href="https://github.com/scng/getdata_PeerAssignments/blob/master/original_data/features_info.txt">feature info</a> files, which is extracted from the raw data and included in the github repository for reference.</p>
 </div>
 <div id="creating-the-tidy-dataset" class="section level2">
 <h2>Creating the tidy dataset</h2>
-<p>The following described the actions taken in the scripts to create tidy data from raw data. You may also refer to the comments in the <a href="https://github.com/scng/getdata_PeerAssignments/blob/master/README.md">scripts file</a> for the details.</p>
+<p>The following described the actions taken in the scripts to create tidy data from raw data. You may also refer to the comments in the <a href="https://github.com/scng/getdata_PeerAssignments/blob/master/run_analysis.R">scripts file</a> for the details.</p>
 <ol style="list-style-type: decimal">
 <li>Read feature.txt file for the feature names of the measurement.</li>
 <li>Perform some transformation on the feature names (e.g. remove special characters like “()”, “-”, “,”… etc., add more descriptive prefix “Time.” and “Frequency.” to replace the original “r” and “t”). The transformed values will be used as the column names for the measurement datasets</li>
@@ -91,7 +91,7 @@ img {
 <li>Repeat step 8 on train dataset (from “subject_train.txt” and “y_train.txt” files)</li>
 <li>Combine both subject-activity datasets into one single dataset of subject - activity label numbers mapping. Perform a left join to find out the descriptive activity names according to the corresponding activity label numbers</li>
 <li>Combine the subject-activity dataset and measurement dataset into one tidy dataset</li>
-<li>Finally, creates an independent tidy data set with the average of each measurement variables grouped by subject and activity. Export the final dataset to <a href="https://github.com/scng/getdata_PeerAssignments/blob/master/README.md">summarise_tidy_dataset.txt</a> file</li>
+<li>Finally, creates an independent tidy data set with the average of each measurement variables grouped by subject and activity. Export the final dataset to <a href="https://github.com/scng/getdata_PeerAssignments/blob/master/summarise_tidy_dataset.txt">summarise_tidy_dataset.txt</a> file</li>
 </ol>
 </div>
 <div id="description-of-the-variables-in-the-final-dataset" class="section level2">
@@ -102,7 +102,7 @@ img {
 <h2>Variables</h2>
 <div id="subject" class="section level3">
 <h3>subject</h3>
-<p>Numeric variable. Identifier of each subject (i.e. the 30 volunteers describted in <a href="https://github.com/scng/getdata_PeerAssignments/blob/master/README.md">Readme.txt</a> in raw data) who joined the test and provided the measurement values</p>
+<p>Numeric variable. Identifier of each subject (i.e. the 30 volunteers describted in <a href="https://github.com/scng/getdata_PeerAssignments/blob/master/original_data/README.txt">Readme.txt</a> in raw data) who joined the test and provided the measurement values</p>
 </div>
 <div id="activity.name" class="section level3">
 <h3>activity.name</h3>
@@ -110,7 +110,7 @@ img {
 </div>
 <div id="other-measurement-variables" class="section level3">
 <h3>Other measurement variables</h3>
-<p>The remaining variables are all Numeric varibles representing the caluculated means of the selected variables, grouped by subject and activity.name. According to the original data’s <a href="https://github.com/scng/getdata_PeerAssignments/blob/master/README.md">readme file</a>, those measurements are normalized and bounded within [-1,1], so as the calculated means.</p>
+<p>The remaining variables are all Numeric varibles representing the caluculated means of the selected variables, grouped by subject and activity.name. According to the original data’s <a href="https://github.com/scng/getdata_PeerAssignments/blob/master/original_data/README.txt">readme file</a>, those measurements are normalized and bounded within [-1,1], so as the calculated means.</p>
 <p>The variable names in the final dataset are converted to be compatible with R variable standard. They are dot-notated, lower-cased, with special character removed. A little conversion has done on the prefix to make it a bit more descriptive to illustrate whether it is a Time domain or Frequency domain signals</p>
 <p>The following shows the mapping table between the variable names in the final dataset and the feature names in the original raw data</p>
 <table>
@@ -138,312 +138,312 @@ img {
 <td align="left">tBodyAcc-mean()-Z</td>
 </tr>
 <tr class="even">
-<td align="left">time.gravityacc.mean.x</td>
+<td align="left">time.bodyacc.std.x</td>
 <td align="left">4</td>
 <td align="left">tBodyAcc-std()-X</td>
 </tr>
 <tr class="odd">
-<td align="left">time.gravityacc.mean.y</td>
+<td align="left">time.bodyacc.std.y</td>
 <td align="left">5</td>
 <td align="left">tBodyAcc-std()-Y</td>
 </tr>
 <tr class="even">
-<td align="left">time.gravityacc.mean.z</td>
+<td align="left">time.bodyacc.std.z</td>
 <td align="left">6</td>
 <td align="left">tBodyAcc-std()-Z</td>
 </tr>
 <tr class="odd">
-<td align="left">time.bodyaccjerk.mean.x</td>
+<td align="left">time.gravityacc.mean.x</td>
 <td align="left">41</td>
 <td align="left">tGravityAcc-mean()-X</td>
 </tr>
 <tr class="even">
-<td align="left">time.bodyaccjerk.mean.y</td>
+<td align="left">time.gravityacc.mean.y</td>
 <td align="left">42</td>
 <td align="left">tGravityAcc-mean()-Y</td>
 </tr>
 <tr class="odd">
-<td align="left">time.bodyaccjerk.mean.z</td>
+<td align="left">time.gravityacc.mean.z</td>
 <td align="left">43</td>
 <td align="left">tGravityAcc-mean()-Z</td>
 </tr>
 <tr class="even">
-<td align="left">time.bodygyro.mean.x</td>
+<td align="left">time.gravityacc.std.x</td>
 <td align="left">44</td>
 <td align="left">tGravityAcc-std()-X</td>
 </tr>
 <tr class="odd">
-<td align="left">time.bodygyro.mean.y</td>
+<td align="left">time.gravityacc.std.y</td>
 <td align="left">45</td>
 <td align="left">tGravityAcc-std()-Y</td>
 </tr>
 <tr class="even">
-<td align="left">time.bodygyro.mean.z</td>
+<td align="left">time.gravityacc.std.z</td>
 <td align="left">46</td>
 <td align="left">tGravityAcc-std()-Z</td>
 </tr>
 <tr class="odd">
-<td align="left">time.bodygyrojerk.mean.x</td>
+<td align="left">time.bodyaccjerk.mean.x</td>
 <td align="left">81</td>
 <td align="left">tBodyAccJerk-mean()-X</td>
 </tr>
 <tr class="even">
-<td align="left">time.bodygyrojerk.mean.y</td>
+<td align="left">time.bodyaccjerk.mean.y</td>
 <td align="left">82</td>
 <td align="left">tBodyAccJerk-mean()-Y</td>
 </tr>
 <tr class="odd">
-<td align="left">time.bodygyrojerk.mean.z</td>
+<td align="left">time.bodyaccjerk.mean.z</td>
 <td align="left">83</td>
 <td align="left">tBodyAccJerk-mean()-Z</td>
 </tr>
 <tr class="even">
-<td align="left">time.bodyaccmag.mean</td>
+<td align="left">time.bodyaccjerk.std.x</td>
 <td align="left">84</td>
 <td align="left">tBodyAccJerk-std()-X</td>
 </tr>
 <tr class="odd">
-<td align="left">time.gravityaccmag.mean</td>
+<td align="left">time.bodyaccjerk.std.y</td>
 <td align="left">85</td>
 <td align="left">tBodyAccJerk-std()-Y</td>
 </tr>
 <tr class="even">
-<td align="left">time.bodyaccjerkmag.mean</td>
+<td align="left">time.bodyaccjerk.std.z</td>
 <td align="left">86</td>
 <td align="left">tBodyAccJerk-std()-Z</td>
 </tr>
 <tr class="odd">
-<td align="left">time.bodygyromag.mean</td>
+<td align="left">time.bodygyro.mean.x</td>
 <td align="left">121</td>
 <td align="left">tBodyGyro-mean()-X</td>
 </tr>
 <tr class="even">
-<td align="left">time.bodygyrojerkmag.mean</td>
+<td align="left">time.bodygyro.mean.y</td>
 <td align="left">122</td>
 <td align="left">tBodyGyro-mean()-Y</td>
 </tr>
 <tr class="odd">
-<td align="left">frequency.bodyacc.mean.x</td>
+<td align="left">time.bodygyro.mean.z</td>
 <td align="left">123</td>
 <td align="left">tBodyGyro-mean()-Z</td>
 </tr>
 <tr class="even">
-<td align="left">frequency.bodyacc.mean.y</td>
+<td align="left">time.bodygyro.std.x</td>
 <td align="left">124</td>
 <td align="left">tBodyGyro-std()-X</td>
 </tr>
 <tr class="odd">
-<td align="left">frequency.bodyacc.mean.z</td>
+<td align="left">time.bodygyro.std.y</td>
 <td align="left">125</td>
 <td align="left">tBodyGyro-std()-Y</td>
 </tr>
 <tr class="even">
-<td align="left">frequency.bodyaccjerk.mean.x</td>
+<td align="left">time.bodygyro.std.z</td>
 <td align="left">126</td>
 <td align="left">tBodyGyro-std()-Z</td>
 </tr>
 <tr class="odd">
-<td align="left">frequency.bodyaccjerk.mean.y</td>
+<td align="left">time.bodygyrojerk.mean.x</td>
 <td align="left">161</td>
 <td align="left">tBodyGyroJerk-mean()-X</td>
 </tr>
 <tr class="even">
-<td align="left">frequency.bodyaccjerk.mean.z</td>
+<td align="left">time.bodygyrojerk.mean.y</td>
 <td align="left">162</td>
 <td align="left">tBodyGyroJerk-mean()-Y</td>
 </tr>
 <tr class="odd">
-<td align="left">frequency.bodygyro.mean.x</td>
+<td align="left">time.bodygyrojerk.mean.z</td>
 <td align="left">163</td>
 <td align="left">tBodyGyroJerk-mean()-Z</td>
 </tr>
 <tr class="even">
-<td align="left">frequency.bodygyro.mean.y</td>
+<td align="left">time.bodygyrojerk.std.x</td>
 <td align="left">164</td>
 <td align="left">tBodyGyroJerk-std()-X</td>
 </tr>
 <tr class="odd">
-<td align="left">frequency.bodygyro.mean.z</td>
+<td align="left">time.bodygyrojerk.std.y</td>
 <td align="left">165</td>
 <td align="left">tBodyGyroJerk-std()-Y</td>
 </tr>
 <tr class="even">
-<td align="left">frequency.bodyaccmag.mean</td>
+<td align="left">time.bodygyrojerk.std.z</td>
 <td align="left">166</td>
 <td align="left">tBodyGyroJerk-std()-Z</td>
 </tr>
 <tr class="odd">
-<td align="left">frequency.bodybodyaccjerkmag.mean</td>
+<td align="left">time.bodyaccmag.mean</td>
 <td align="left">201</td>
 <td align="left">tBodyAccMag-mean()</td>
 </tr>
 <tr class="even">
-<td align="left">frequency.bodybodygyromag.mean</td>
+<td align="left">time.bodyaccmag.std</td>
 <td align="left">202</td>
 <td align="left">tBodyAccMag-std()</td>
 </tr>
 <tr class="odd">
-<td align="left">frequency.bodybodygyrojerkmag.mean</td>
+<td align="left">time.gravityaccmag.mean</td>
 <td align="left">214</td>
 <td align="left">tGravityAccMag-mean()</td>
 </tr>
 <tr class="even">
-<td align="left">time.bodyacc.std.x</td>
+<td align="left">time.gravityaccmag.std</td>
 <td align="left">215</td>
 <td align="left">tGravityAccMag-std()</td>
 </tr>
 <tr class="odd">
-<td align="left">time.bodyacc.std.y</td>
+<td align="left">time.bodyaccjerkmag.mean</td>
 <td align="left">227</td>
 <td align="left">tBodyAccJerkMag-mean()</td>
 </tr>
 <tr class="even">
-<td align="left">time.bodyacc.std.z</td>
+<td align="left">time.bodyaccjerkmag.std</td>
 <td align="left">228</td>
 <td align="left">tBodyAccJerkMag-std()</td>
 </tr>
 <tr class="odd">
-<td align="left">time.gravityacc.std.x</td>
+<td align="left">time.bodygyromag.mean</td>
 <td align="left">240</td>
 <td align="left">tBodyGyroMag-mean()</td>
 </tr>
 <tr class="even">
-<td align="left">time.gravityacc.std.y</td>
+<td align="left">time.bodygyromag.std</td>
 <td align="left">241</td>
 <td align="left">tBodyGyroMag-std()</td>
 </tr>
 <tr class="odd">
-<td align="left">time.gravityacc.std.z</td>
+<td align="left">time.bodygyrojerkmag.mean</td>
 <td align="left">253</td>
 <td align="left">tBodyGyroJerkMag-mean()</td>
 </tr>
 <tr class="even">
-<td align="left">time.bodyaccjerk.std.x</td>
+<td align="left">time.bodygyrojerkmag.std</td>
 <td align="left">254</td>
 <td align="left">tBodyGyroJerkMag-std()</td>
 </tr>
 <tr class="odd">
-<td align="left">time.bodyaccjerk.std.y</td>
+<td align="left">frequency.bodyacc.mean.x</td>
 <td align="left">266</td>
 <td align="left">fBodyAcc-mean()-X</td>
 </tr>
 <tr class="even">
-<td align="left">time.bodyaccjerk.std.z</td>
+<td align="left">frequency.bodyacc.mean.y</td>
 <td align="left">267</td>
 <td align="left">fBodyAcc-mean()-Y</td>
 </tr>
 <tr class="odd">
-<td align="left">time.bodygyro.std.x</td>
+<td align="left">frequency.bodyacc.mean.z</td>
 <td align="left">268</td>
 <td align="left">fBodyAcc-mean()-Z</td>
 </tr>
 <tr class="even">
-<td align="left">time.bodygyro.std.y</td>
+<td align="left">frequency.bodyacc.std.x</td>
 <td align="left">269</td>
 <td align="left">fBodyAcc-std()-X</td>
 </tr>
 <tr class="odd">
-<td align="left">time.bodygyro.std.z</td>
+<td align="left">frequency.bodyacc.std.y</td>
 <td align="left">270</td>
 <td align="left">fBodyAcc-std()-Y</td>
 </tr>
 <tr class="even">
-<td align="left">time.bodygyrojerk.std.x</td>
+<td align="left">frequency.bodyacc.std.z</td>
 <td align="left">271</td>
 <td align="left">fBodyAcc-std()-Z</td>
 </tr>
 <tr class="odd">
-<td align="left">time.bodygyrojerk.std.y</td>
+<td align="left">frequency.bodyaccjerk.mean.x</td>
 <td align="left">345</td>
 <td align="left">fBodyAccJerk-mean()-X</td>
 </tr>
 <tr class="even">
-<td align="left">time.bodygyrojerk.std.z</td>
+<td align="left">frequency.bodyaccjerk.mean.y</td>
 <td align="left">346</td>
 <td align="left">fBodyAccJerk-mean()-Y</td>
 </tr>
 <tr class="odd">
-<td align="left">time.bodyaccmag.std</td>
+<td align="left">frequency.bodyaccjerk.mean.z</td>
 <td align="left">347</td>
 <td align="left">fBodyAccJerk-mean()-Z</td>
 </tr>
 <tr class="even">
-<td align="left">time.gravityaccmag.std</td>
+<td align="left">frequency.bodyaccjerk.std.x</td>
 <td align="left">348</td>
 <td align="left">fBodyAccJerk-std()-X</td>
 </tr>
 <tr class="odd">
-<td align="left">time.bodyaccjerkmag.std</td>
+<td align="left">frequency.bodyaccjerk.std.y</td>
 <td align="left">349</td>
 <td align="left">fBodyAccJerk-std()-Y</td>
 </tr>
 <tr class="even">
-<td align="left">time.bodygyromag.std</td>
+<td align="left">frequency.bodyaccjerk.std.z</td>
 <td align="left">350</td>
 <td align="left">fBodyAccJerk-std()-Z</td>
 </tr>
 <tr class="odd">
-<td align="left">time.bodygyrojerkmag.std</td>
+<td align="left">frequency.bodygyro.mean.x</td>
 <td align="left">424</td>
 <td align="left">fBodyGyro-mean()-X</td>
 </tr>
 <tr class="even">
-<td align="left">frequency.bodyacc.std.x</td>
+<td align="left">frequency.bodygyro.mean.y</td>
 <td align="left">425</td>
 <td align="left">fBodyGyro-mean()-Y</td>
 </tr>
 <tr class="odd">
-<td align="left">frequency.bodyacc.std.y</td>
+<td align="left">frequency.bodygyro.mean.z</td>
 <td align="left">426</td>
 <td align="left">fBodyGyro-mean()-Z</td>
 </tr>
 <tr class="even">
-<td align="left">frequency.bodyacc.std.z</td>
+<td align="left">frequency.bodygyro.std.x</td>
 <td align="left">427</td>
 <td align="left">fBodyGyro-std()-X</td>
 </tr>
 <tr class="odd">
-<td align="left">frequency.bodyaccjerk.std.x</td>
+<td align="left">frequency.bodygyro.std.y</td>
 <td align="left">428</td>
 <td align="left">fBodyGyro-std()-Y</td>
 </tr>
 <tr class="even">
-<td align="left">frequency.bodyaccjerk.std.y</td>
+<td align="left">frequency.bodygyro.std.z</td>
 <td align="left">429</td>
 <td align="left">fBodyGyro-std()-Z</td>
 </tr>
 <tr class="odd">
-<td align="left">frequency.bodyaccjerk.std.z</td>
+<td align="left">frequency.bodyaccmag.mean</td>
 <td align="left">503</td>
 <td align="left">fBodyAccMag-mean()</td>
 </tr>
 <tr class="even">
-<td align="left">frequency.bodygyro.std.x</td>
+<td align="left">frequency.bodyaccmag.std</td>
 <td align="left">504</td>
 <td align="left">fBodyAccMag-std()</td>
 </tr>
 <tr class="odd">
-<td align="left">frequency.bodygyro.std.y</td>
+<td align="left">frequency.bodybodyaccjerkmag.mean</td>
 <td align="left">516</td>
 <td align="left">fBodyBodyAccJerkMag-mean()</td>
 </tr>
 <tr class="even">
-<td align="left">frequency.bodygyro.std.z</td>
+<td align="left">frequency.bodybodyaccjerkmag.std</td>
 <td align="left">517</td>
 <td align="left">fBodyBodyAccJerkMag-std()</td>
 </tr>
 <tr class="odd">
-<td align="left">frequency.bodyaccmag.std</td>
+<td align="left">frequency.bodybodygyromag.mean</td>
 <td align="left">529</td>
 <td align="left">fBodyBodyGyroMag-mean()</td>
 </tr>
 <tr class="even">
-<td align="left">frequency.bodybodyaccjerkmag.std</td>
+<td align="left">frequency.bodybodygyromag.std</td>
 <td align="left">530</td>
 <td align="left">fBodyBodyGyroMag-std()</td>
 </tr>
 <tr class="odd">
-<td align="left">frequency.bodybodygyromag.std</td>
+<td align="left">frequency.bodybodygyrojerkmag.mean</td>
 <td align="left">542</td>
 <td align="left">fBodyBodyGyroJerkMag-mean()</td>
 </tr>
