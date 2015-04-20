@@ -1,6 +1,11 @@
-# Report for Getting and Cleaning Data Course Project
-S C NG  
-20 Apr 2015  
+---
+title: "Report for Getting and Cleaning Data Course Project"
+author: "S C NG"
+date: "20 Apr 2015"
+output:
+  html_document:
+    keep_md: yes
+---
  
 ## Project Description
 This is the report of Course Project for Coursera Course [Getting and Cleaning Data][course_url]. Please refer to the [course project page][project_url] for the details. All the source code for this project is uploaded in [author's github repository][github_url].
@@ -9,8 +14,7 @@ This is the report of Course Project for Coursera Course [Getting and Cleaning D
 All the scripts for generating the final dataset are included in R scripts file [run_analysis.R][script_url]. The scripts assumed that user has downloaded the [raw data][data_url] zip file and unzipped all contents into ./data folder. 
 
 The following command can be used to run the script
-
-```r
+```{r eval=FALSE, echo=TRUE}
 source("run_analysis.R")
 ```
 
